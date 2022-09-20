@@ -13,7 +13,8 @@ function loadBooks() {
         <div class="remove_book-btn__container">
           <button onclick="removeBook(${book.id})" class="remove_book-btn">Remove</button>
         </div>
-    </div> <hr>`,
+    </div> 
+    <hr>`
   );
   booksContainerElement.innerHTML = list.join('');
 }
@@ -63,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
   loadBooks();
 });
 
+/* eslint-disable no-unused-vars */
 function removeBook(id) {
   const booksAfterRemove = books.filter((book) => book.id !== id);
   books = booksAfterRemove;
   populateLocalstorage('books', booksAfterRemove);
 }
-removeBook();
