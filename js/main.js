@@ -14,8 +14,7 @@ class Awesomebooks {
     if (bookData.length) {
       const displayBooks = bookData
         .map(
-          (book) => `
-        <div id="book_id" class="book">
+          (book) => `<div id="book_id" class="book">
             <div class="title-and-author">
             <div class="book-title">${book.title} by</div>
             <div class="book-author">${book.author}</div>
@@ -24,10 +23,8 @@ class Awesomebooks {
           <div class="remove_book-btn__container">
             <button onclick="Awesomebooks.delBook(${book.id});" class="remove_book-btn">Remove</button>
           </div>
-        </div><hr>
-  `,
+        </div><hr>`,
         )
-
         .join('');
       booksContainer.innerHTML = displayBooks;
     } else {
