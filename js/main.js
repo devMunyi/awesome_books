@@ -25,14 +25,13 @@ class Awesomebooks {
             <button onclick="Awesomebooks.delBook(${book.id});" class="remove_book-btn">Remove</button>
           </div>
         </div><hr>
-  `
+  `,
         )
 
         .join('');
       booksContainer.innerHTML = displayBooks;
     } else {
-      booksContainer.innerHTML =
-        ' <span class="text-center"><i>No books added yet</i></span>';
+      booksContainer.innerHTML = ' <span class="text-center"><i>No books added yet</i></span>';
     }
   }
 
@@ -66,7 +65,7 @@ document.getElementById('add-book-form').addEventListener('submit', (e) => {
   const bookObject = new Awesomebooks(
     nextBookId,
     document.getElementById('title').value,
-    document.getElementById('author').value
+    document.getElementById('author').value,
   );
   Awesomebooks.addBook(bookObject);
   document.getElementById('title').value = '';
