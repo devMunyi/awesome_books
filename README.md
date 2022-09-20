@@ -9,7 +9,8 @@ Awesome Books
 
 HTML, JS&CSS
 
-## Live demo
+## [Live demo](https://devmunyi.github.io/awesome_books/)
+
 
 
 ## Getting Started
