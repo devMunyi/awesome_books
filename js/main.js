@@ -16,8 +16,8 @@ class Awesomebooks {
   // class method to get added book id
   static getAddedBookId() {
     const books = Awesomebooks.getBookList();
-    const booksCount = books.length,
-      lastBookIndex = booksCount - 1;
+    const booksCount = books.length;
+    const lastBookIndex = booksCount - 1;
     const lastAddedBookId = books[lastBookIndex]?.id
       ? books[lastBookIndex].id
       : 0;
@@ -41,13 +41,12 @@ class Awesomebooks {
           <div class="remove_book-btn__container">
             <button onclick="Awesomebooks.removeBook(${book.id});" class="remove_book-btn">Remove</button>
           </div>
-        </div><hr>`
+        </div><hr>`,
         )
         .join('');
       booksContainer.innerHTML = listOfBooks;
     } else {
-      booksContainer.innerHTML =
-        ' <span class="text-center"><i>No books added yet</i></span>';
+      booksContainer.innerHTML = ' <span class="text-center"><i>No books added yet</i></span>';
     }
   }
 
@@ -90,7 +89,7 @@ document.getElementById('add-book-form').addEventListener('submit', (e) => {
   const bookObject = new Awesomebooks(
     bookId,
     document.getElementById('title').value,
-    document.getElementById('author').value
+    document.getElementById('author').value,
   );
   Awesomebooks.addBook(bookObject);
   document.getElementById('title').value = '';
