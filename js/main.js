@@ -18,9 +18,7 @@ class Awesomebooks {
     const books = Awesomebooks.getBookList();
     const booksCount = books.length;
     const lastBookIndex = booksCount - 1;
-    const lastAddedBookId = books[lastBookIndex]?.id
-      ? books[lastBookIndex].id
-      : 0;
+    const lastAddedBookId = books[lastBookIndex]?.id ? books[lastBookIndex].id : 0;
 
     return lastAddedBookId + 1;
   }
