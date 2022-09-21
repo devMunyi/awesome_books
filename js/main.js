@@ -1,7 +1,3 @@
-let bookData = JSON.parse(localStorage.getItem('books'))
-  ? JSON.parse(localStorage.getItem('books'))
-  : [];
-
 class Awesomebooks {
   constructor(id, title, author) {
     this.id = id;
@@ -9,8 +5,15 @@ class Awesomebooks {
     this.author = author;
   }
 
+  static getBookList() {
+    return JSON.parse(localStorage.getItem('books'))
+      ? JSON.parse(localStorage.getItem('books'))
+      : [];
+  }
+
   static createBooks() {
     const booksContainer = document.querySelector('.books-list');
+    const bookData = Awesomebooks.getBookList();
     if (bookData.length) {
       const displayBooks = bookData
         .map(
@@ -34,16 +37,18 @@ class Awesomebooks {
 
   // Method to add books
   static addBook(bookItem) {
+    const bookData = Awesomebooks.getBookList();
     bookData.push(bookItem);
     // eslint-disable-next-line no-use-before-define
     sendToLocal('books', bookData);
   }
 
   // Method to delete books
-  // eslint-disable-next-line no-unused-vars
+  /* eslint-disable-next-line no-unused-vars */
   static delBook(id) {
+    const bookData = Awesomebooks.getBookList();
     const filteredBooks = bookData.filter((item) => item.id !== id);
-    bookData = filteredBooks;
+    // bookData = filteredBooks;
     // eslint-disable-next-line no-use-before-define
     sendToLocal('books', filteredBooks);
   }
@@ -57,6 +62,7 @@ function sendToLocal(a, b) {
 }
 document.getElementById('add-book-form').addEventListener('submit', (e) => {
   e.preventDefault();
+  const bookData = Awesomebooks.getBookList();
   const nextBookId = bookData.length + 1;
 
   const bookObject = new Awesomebooks(

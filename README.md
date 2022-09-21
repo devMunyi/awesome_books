@@ -12,7 +12,6 @@ HTML, JS&CSS
 ## [Live demo](https://devmunyi.github.io/awesome_books/)
 
 
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
