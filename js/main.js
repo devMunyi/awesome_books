@@ -18,7 +18,9 @@ class Awesomebooks {
     const books = Awesomebooks.getBookList();
     const booksCount = books.length;
     const lastBookIndex = booksCount - 1;
-    const lastAddedBookId = books[lastBookIndex]?.id ? books[lastBookIndex].id : 0;
+    const lastAddedBookId = books[lastBookIndex]?.id
+      ? books[lastBookIndex].id
+      : 0;
 
     return lastAddedBookId + 1;
   }
@@ -93,3 +95,71 @@ document.getElementById('add-book-form').addEventListener('submit', (e) => {
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
 });
+
+// Add active class to the current button (highlight it)
+// var header = document.querySelector('.nav-right__list-container');
+const links = document.getElementsByClassName('nav__item');
+for (let i = 0; i < links.length; i += 1) {
+  links[i].addEventListener('click', function () {
+    const current = document.getElementsByClassName('active');
+    current[0].className = current[0]?.className?.replace(' active', '');
+    this.className += ' active';
+  });
+}
+
+/* eslint-disable-next-line no-unused-vars */
+function toggleSection(domId) {
+  if (domId === 'books-list') {
+    document.getElementById('add-books').style.display = 'none';
+    document.getElementById('contact').style.display = 'none';
+    document.getElementById('books-list').style.display = 'block';
+  }
+
+  if (domId === 'add-books') {
+    document.getElementById('books-list').style.display = 'none';
+    document.getElementById('contact').style.display = 'none';
+    document.getElementById('add-books').style.display = 'flex';
+  }
+
+  if (domId === 'contact') {
+    document.getElementById('books-list').style.display = 'none';
+    document.getElementById('add-books').style.display = 'none';
+    document.getElementById('contact').style.display = 'block';
+  }
+}
+
+// function timeConversion12Hours(dt) {
+//   //slice time for conversion
+//   let ot = dt.slice(11, 16);
+//   let mt = dt.slice(11, 16);
+
+//   /* let lastTwo = mt.slice(-2); */
+//   let firstTwo = mt.slice(0, 2);
+//   let intFirstTwo = parseInt(firstTwo);
+//   let timeZeroIndex = mt.slice(0, 1);
+
+//   /* console.log("ZERO INDEX VALUE IS => ", timeZeroIndex); */
+
+//   if (intFirstTwo == '00') {
+//     intFirstTwo += 12;
+//     mt = mt.replace(firstTwo, intFirstTwo) + 'AM';
+//   } else if (intFirstTwo < 12 && intFirstTwo != '00' && timeZeroIndex != 0) {
+//     mt = mt + 'AM';
+//   } else if (intFirstTwo < 12 && intFirstTwo != '00' && timeZeroIndex == 0) {
+//     mt = mt.replace('0', '') + 'AM';
+//   } else if (intFirstTwo > 12) {
+//     intFirstTwo -= 12;
+//     mt = mt.replace(firstTwo, intFirstTwo) + 'PM';
+//   } else {
+//     if (intFirstTwo == 12) {
+//       mt = mt + 'PM';
+//     }
+//   }
+
+//   dt = dt.replace(ot, mt);
+//   return dt;
+// }
+
+// function sliceDatetime(dt) {
+//   return dt.slice(0, 16);
+// }
